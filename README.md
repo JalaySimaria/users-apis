@@ -31,7 +31,7 @@ Both of them are private APIs. Not accessible without passing a valid JWT token 
 Dev dependencies
 
 - [chai](https://www.npmjs.com/package/chai) - Assertion library
-- [chai-http](https://www.npmjs.com/package/chai-http) - HTTP integration testing with Chai assetions
+- [chai-http](https://www.npmjs.com/package/chai-http) - HTTP integration testing with Chai assertions
 - [mocha](https://www.npmjs.com/package/mocha) - Async testing environment provider
 - [uuid](https://www.npmjs.com/package/uuid) - Fast UUIDs generator
 
@@ -39,7 +39,7 @@ Dev dependencies
 
 ---
 
-> I have configured a MongoDB clustor on cloud, thus, you don't need to start your local MongoDB and do some configuration.
+> I have configured a MongoDB cluster on cloud, thus, you don't need to start your local MongoDB and do some configuration.
 
 This project contains 3 environments. Each of them requires a different PORT. Thus, please make sure you free those PORTs before starting the server
 
@@ -77,7 +77,7 @@ In case if you're not comfortable freeing those PORTs, you can navigate to `conf
     │   │   ├── config-prod.json        # use if NODE_ENV === prod
     │   │   └── config-test.json        # use if NODE_ENV === test
     │   ├── index.js                    # starting point of server
-    │   ├── models                      # directory contains mongodb schemas
+    │   ├── models                      # directory contains MongoDB schemas
     │   │   └── users.js
     │   ├── routes                      # directory containins API routes based in version
     │   │   └── v1                      # /v1 routes in this directory
@@ -86,7 +86,7 @@ In case if you're not comfortable freeing those PORTs, you can navigate to `conf
     │   │       ├── controllers         # API request handlers in this directory
     │   │       │   └── users.js
     │   │       ├── index.js            # endpoint to router mapped in this file
-    │   │       └── utils               # utilitiy function in directory
+    │   │       └── utils               # utility function in directory
     │   │           └── middlewares.js
     │   ├── server.js                   # once db connected, server is done here
     │   └── test                        # mocha/chai test cases written in here
