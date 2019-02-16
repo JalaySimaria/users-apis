@@ -1,0 +1,148 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Users APIs",
+    "description": "<b>NOTE</b>: You need to start the server in PROD mode i.e. <b>yarn start</b> to be able to use <b>Try it out</b> feature of Swagger. Because default URL set to <b>8080</b> port.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "http://jalay.in/",
+      "email": "jalay.simaria18@gmail.com"
+    }
+  },
+  "host": "localhost:8080",
+  "basePath": "/v1",
+  "schemes": ["http"],
+  "tags": [
+    {
+      "name": "Get Users",
+      "description": "Get all the users"
+    },
+    {
+      "name": "Create User",
+      "description": "Create a new user"
+    }
+  ],
+  "paths": {
+    "/users": {
+      "get": {
+        "tags": ["Get Users"],
+        "summary": "Get all the users previously created, newest to oldest",
+        "description": "(Private API, cannot access without a valid token) Returns users[array]",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "description": "Only accessible with a valid token",
+            "type": "string",
+            "format": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Users listed successfully!",
+            "schema": {
+              "$ref": "#/definitions/Users"
+            }
+          },
+          "401": {
+            "description": "Invalid token",
+            "schema": {
+              "$ref": "#/definitions/Message"
+            }
+          },
+          "403": {
+            "description": "You're not allowed to access this endpoint without a valid token",
+            "schema": {
+              "$ref": "#/definitions/Message"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Create User"],
+        "summary": "Creates a new user",
+        "description": "(Private API, cannot access without a valid token) Returns success/error message",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "description": "Only accessible with a valid token",
+            "type": "string",
+            "format": "string"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "description": "Form data",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Users listed successfully!",
+            "schema": {
+              "$ref": "#/definitions/Message"
+            }
+          },
+          "401": {
+            "description": "Invalid token",
+            "schema": {
+              "$ref": "#/definitions/Message"
+            }
+          },
+          "403": {
+            "description": "You're not allowed to access this endpoint without a valid token",
+            "schema": {
+              "$ref": "#/definitions/Message"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Message": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "age": {
+          "type": "number"
+        }
+      }
+    },
+    "Users": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "users": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/User"
+          }
+        }
+      }
+    }
+  }
+}

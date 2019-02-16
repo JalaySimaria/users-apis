@@ -1,0 +1,11 @@
+{
+  "MONGO": {
+    "HOST": "testvirtusa-p5epw.mongodb.net",
+    "DB": "usersTest",
+    "USERNAME": "testVirtusa",
+    "PASSWORD": "testVirtusa"
+  },
+  "SERVER": {
+    "PORT": 8082
+  }
+}
